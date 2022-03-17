@@ -11,6 +11,7 @@ package c8y.trackeragent;
 
 import c8y.trackeragent.exception.SDKExceptions;
 import com.cumulocity.model.authentication.CumulocityBasicCredentials;
+import com.cumulocity.model.authentication.CumulocityCredentials;
 import com.cumulocity.sdk.client.*;
 import com.cumulocity.sdk.client.alarm.AlarmApi;
 import com.cumulocity.sdk.client.audit.AuditRecordApi;
@@ -211,6 +212,10 @@ public class TrackerPlatform implements Platform {
 
     public void close() {
         orig.close();
+    }
+
+    public CumulocityCredentials credentials() {
+        return orig.credentials();
     }
 
     public RestOperations rest() {
